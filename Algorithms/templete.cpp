@@ -1,7 +1,5 @@
 // LIVE AND LET OTHERS LIVE.
-#pragma GCC optimize("Ofast")
-#pragma GCC optimize("O3", "unroll-loops")
-#pragma GCC target("avx,avx2,fma")
+
 #include <bits/stdc++.h>
 using namespace std;
 
