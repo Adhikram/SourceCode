@@ -57,19 +57,20 @@ void  single()
 {
     int n ;
     cin>>n;
-    vi nums(n,0);
-    ai(nums);
+    cout<<n;
+    // vi nums(n,0);
+    // ai(nums);
 
-    sort(nums.begin(),nums.end(),[]
-             (int x,int y){
-                 if(to_string(x)+to_string(y)>to_string(y)+to_string(x))return true;
-                 else return false;
+    // sort(nums.begin(),nums.end(),[]
+    //          (int x,int y){
+    //              if(to_string(x)+to_string(y)>to_string(y)+to_string(x))return true;
+    //              else return false;
             
-        });
-        string result="";
-        for(auto x:nums){result+=to_string(x);}
-        if(result[0]=='0') return "0";
-        cout<<result<<endl;
+    //     });
+    //     string result="";
+    //     for(auto x:nums){result+=to_string(x);}
+    //     if(result[0]=='0') return "0";
+    //     cout<<result<<endl;
     // cerr<<"time taken : "<<(float)clock()/CLOCKS_PER_SEC<<" secs"<<endl;
 }
 void multiple(){
@@ -80,9 +81,8 @@ int main()
 {
 IOS;
 #ifndef ONLINE_JUDGE
-freopen("../input.txt","r",stdin);
-freopen("../output.txt","w",stdout);
-freopen("../error.txt","w",stderr);
+freopen("../../input.txt","r",stdin);
+freopen("../../output.txt","w",stdout);
 #endif
 // multiple();
 single();
