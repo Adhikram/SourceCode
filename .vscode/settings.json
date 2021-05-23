@@ -1,3 +1,15 @@
 {
-    "debug.onTaskErrors": "showErrors"
+    "debug.onTaskErrors": "showErrors",
+    "cSpell.words": [
+        "Fori",
+        "asdf",
+        "sconvert",
+        "vppo"
+    ],
+    "files.associations": {
+        "ostream": "cpp",
+        "iostream": "cpp",
+        "unordered_map": "cpp",
+        "iosfwd": "cpp"
+    }
 }
