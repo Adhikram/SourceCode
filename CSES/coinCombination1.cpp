@@ -1,7 +1,4 @@
 // LIVE AND LET OTHERS LIVE.
-#pragma GCC optimize("Ofast")
-#pragma GCC optimize("O3", "unroll-loops")
-#pragma GCC target("avx,avx2,fma")
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -9,18 +6,22 @@ using namespace std;
 
 #define yes cout<<"YES"<<endl
 #define no cout<<"NO"<<endl
-#define take(x) cin>>(x);
+#define take(x) ll x;cin>>(x);
+#define p(x) cout<<x<<endl;
+#define p2(x,y) cout<<x<<" "<<y<<endl;
 #define pb push_back
 #define all(c) (c).begin(),(c).end()
 #define reverse(a) reverse(all(a))
 #define rall(c) (c).rbegin(),(c).rend()
-#define ai(arr) for(int i=0;i<arr.size();i++)cin>>arr[i];
+#define ai(arr,n) vll arr(n,0); for(int i=0;i<arr.size();i++)cin>>arr[i];
 #define ao(arr) for(auto wtf:arr) cout<<wtf<<" ";
-#define mi(arr,m,n) for(int i=0;i<m;i++){ for(int j=0;j<n;j++) cin>>arr[i][j];}
+#define mi(arr,m,n) vector<vll>arr(m,vll(n,0)); for(int i=0;i<m;i++){ for(int j=0;j<n;j++) cin>>arr[i][j];}
 #define mo(arr,m,n) for(int i=0;i<m;i++){ for(int j=0;j<n;j++) cout<<arr[i][j]<<" "; cout<<endl;}
 #define vppo(prs) for(auto x:prs){cout<<x.first<<" "<<x.second<<endl;}
 #define For(__,$$,adfdf) for(int __ = $$; __<adfdf;__++)
 #define Fori(__,$$,adfdf) for(int __ = $$; __>adfdf;__--)
+
+bool sortbysec(const pair<int,int> &a, const pair<int,int> &b){ return (a.second > b.second); } 
 
 #define countsetbits(x) __builtin_popcount(x)
 #define db double
@@ -45,26 +46,40 @@ using namespace std;
 #define up unordered_map
 
 
-#define MOD (ll)1e9+7
+const ll MOD = 1e9+7, M = 2e6+7;
 string sconvert(ll n){stringstream ss; ss<<n; string str = ss.str(); return str;}
-ll add(ll x, ll y) {ll res = x + y; return (res >= MOD ? res - MOD : res);}
-ll mul(ll x, ll y) {ll res = x * y; return (res >= MOD ? res % MOD : res);}
-ll sub(ll x, ll y) {ll res = x - y; return (res < 0 ? res + MOD : res);}
-ll power(ll x, ll y) {ll res = 1; x %= MOD; while (y) {if (y & 1)res = mul(res, x); y >>= 1; x = mul(x, x);} return res;}
-ll mod_inv(ll x) {return power(x, MOD - 2);}
 ll lcm(ll x, ll y) { ll res = x / __gcd(x, y); return (res * y);}
- 
 
-void  single()
-{
-    ll n,m,a; 
-    cin >>n>>m>>a ;
-    // cout<<((n%a != 0)?1:0)<<endl;
-    ll row = n/a + ((n%a != 0)?1:0);
-    ll col = m/a + ((m%a != 0)?1:0);
-    cout<<row*col<<endl;
-    // cerr<<"time taken : "<<(float)clock()/CLOCKS_PER_SEC<<" secs"<<endl;
+vll memo ;
+ll solve (ll W, vll a){
+  if(W==0){
+    return 1;
+  }
+  if(W<0)return 0;
+  if(memo[W]!= -1)return memo[W];
+  ll result=0;
+  For(i,0,a.size()){
+    result = (result+solve(W-a[i],a))%MOD;
+  }
+  return memo[W]= result;
 }
+void  single(){
+    take(n);
+    take(W);
+    memo.resize(W+1,0);
+    ai(a,n);
+    
+    // p(solve(W,a));
+    // memo[0]=1;
+    
+    ao(memo);
+    p((memo[W]==INT_MAX? -1:memo[W])) ;
+    
+
+
+  cerr<<"time taken : "<<(float)clock()/CLOCKS_PER_SEC<<" secs"<<endl;
+}
+
 void multiple(){
   mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
   testcases{single();}
@@ -75,11 +90,9 @@ IOS;
 #ifndef ONLINE_JUDGE
 freopen("../input.txt","r",stdin);
 freopen("../output.txt","w",stdout);
+freopen("../error.txt","w",stderr);
 #endif
 // multiple();
 single();
 
 }
-
-
-

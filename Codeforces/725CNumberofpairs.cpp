@@ -27,7 +27,7 @@ using namespace std;
 #define ull unsigned ll
 
 
-#define deb cout<<"I AM EXECUTING"<<endl
+#define debugger cout<<"I AM EXECUTING"<<endl
 #define testcases int asdf; cin>>asdf; while(asdf--)
 
 #define space cout<<endl
@@ -42,16 +42,44 @@ using namespace std;
 #define si set<int>
 #define pqq priority_queue
 #define up unordered_map
-ll MOD = 1e9 +7 ;
+
+
+const ll MOD = 1e9+7, M = 2e6+7;
 string sconvert(ll n){stringstream ss; ss<<n; string str = ss.str(); return str;}
 ll lcm(ll x, ll y) { ll res = x / __gcd(x, y); return (res * y);}
- 
+bool sortbysec(const pair<int,int> &a, const pair<int,int> &b){ return (a.second > b.second); } 
 
+ll findPairs(vector<ll>arr,ll x)
+{
+    ll n =arr.size();
+    ll l = 0, r = n-1;
+    ll result = 0;
+ 
+    while (l < r)
+    {
+        if (arr[l] + arr[r] < x)
+        {
+            result += (r - l);
+            l++;
+        }
+        else
+            r--;
+    }
+ 
+    return result;
+}
 void  single()
 {
+  take(n);
+  take(l);
+  take(r);
+  ai(a,n);
+  sort(all(a));
+  ll count = findPairs(a,r+1)-findPairs(a,l);
   
+  p(count);
       
-    // cerr<<"time taken : "<<(float)clock()/CLOCKS_PER_SEC<<" secs"<<endl;
+  // cerr<<"time taken : "<<(float)clock()/CLOCKS_PER_SEC<<" secs"<<endl;
 }
 void multiple(){
   mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
@@ -63,6 +91,7 @@ IOS;
 #ifndef ONLINE_JUDGE
 freopen("../input.txt","r",stdin);
 freopen("../output.txt","w",stdout);
+freopen("../error.txt","w",stderr);
 #endif
 multiple();
 // single();

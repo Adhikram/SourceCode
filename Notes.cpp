@@ -35,10 +35,8 @@ struct FenwickTree {
 
 DSU :
 ------------------------------------------------------------------------------
-ll M = 10001;
-vll par(M,0);
-vll ran(M,0);
-
+int par[M];
+int ran[M];
 int parent(int i){
     if (par[i] == i)
         return i;
@@ -81,11 +79,11 @@ vector<int> prefix_function(string s) {
 LCA Binary Lifting :
 ------------------------------------------------------------------------------
 int n, l;
-vector<vll> adj(N);
+vector<vector<int>> adj(N);
 
 int timer;
-vll tin, tout, depth;
-vector<vll> up;
+vector<int> tin, tout, depth;
+vector<vector<int>> up;
 
 void dfs(int v, int p, int h)
 {
@@ -127,7 +125,7 @@ void preprocess(int root) {
     depth.resize(n+1);
     timer = 0;
     l = ceil(log2(n));
-    up.assign(n+1, vll(l + 1));
+    up.assign(n+1, vector<int>(l + 1));
     dfs(root, root, 0);
 }
 ------------------------------------------------------------------------------
@@ -168,33 +166,38 @@ void Manacher(string &s){
 Modular Arithmetic:
 ------------------------------------------------------------------------------
 int madd (ll a, ll b){
-    a = a%MOD, b = b%MOD;
-  return (0ll + a + b)%MOD;
+    a = a%mod, b = b%mod;
+	return (0ll + a + b)%mod;
 }
 int msub (ll a, ll b){
-    a = a%MOD, b = b%MOD;
-  return (0ll + a - b + MOD)%MOD;
+    a = a%mod, b = b%mod;
+	return (0ll + a - b + mod)%mod;
 }
 int mmul (ll a, ll b){
-    a = a%MOD, b = b%MOD;
-  return (1ll * a * b)%MOD;
+    a = a%mod, b = b%mod;
+	return (1ll * a * b)%mod;
 }
-ll power(ll x, ll y) {ll res = 1; x %= MOD; while (y) {if (y & 1)res = mmul(res, x); y >>= 1; x = mmul(x, x);} return res;}
 int minv (ll a){
-    a = a%MOD;
-  return power(a, MOD-2);
+    a = a%mod;
+	return powe(a, mod-2);
 }
 int mdiv (ll a, ll b){
-  return mmul(a, minv(b));
+	return mmul(a, minv(b));
 }
 
-ll M = 10001;
-vll fac(M,0);
+int fac[M];
 
 int ncr(int n, int r){
     if (r < 0 || n < 0 || r > n)
         return 0;
     return mdiv(fac[n], mmul(fac[r], fac[n-r]));
+}
+
+void pre(){
+    fac[0] = 1;
+    for (int i = 1; i < M; i ++){
+        fac[i] = mmul(i, fac[i-1]);
+    }
 }
 ------------------------------------------------------------------------------
 
@@ -251,9 +254,8 @@ vector<int> MO_S_Algorithm(vector<Query> queries) {
 
 Seive (Prime Numbers)
 ------------------------------------------------------------------------------
-ll M = 10001;
-vb sei(M,false);
-vll primes;
+bool sei[M];
+vector<int> primes;
 
 void seive(){
 	for (int i = 2; i<=M; i++){

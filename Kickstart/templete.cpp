@@ -6,16 +6,14 @@ using namespace std;
 
 #define yes cout<<"YES"<<endl
 #define no cout<<"NO"<<endl
-#define take(x) ll x;cin>>(x);
-#define p(x) cout<<x<<endl;
-#define p2(x,y) cout<<x<<" "<<y<<endl;
+#define take(x) cin>>(x);
 #define pb push_back
 #define all(c) (c).begin(),(c).end()
 #define reverse(a) reverse(all(a))
 #define rall(c) (c).rbegin(),(c).rend()
-#define ai(arr,n) vll arr(n,0); for(int i=0;i<arr.size();i++)cin>>arr[i];
+#define ai(arr) for(int i=0;i<arr.size();i++)cin>>arr[i];
 #define ao(arr) for(auto wtf:arr) cout<<wtf<<" ";
-#define mi(arr,m,n) vector<vll>arr(m,vll(n,0)); for(int i=0;i<m;i++){ for(int j=0;j<n;j++) cin>>arr[i][j];}
+#define mi(arr,m,n) for(int i=0;i<m;i++){ for(int j=0;j<n;j++) cin>>arr[i][j];}
 #define mo(arr,m,n) for(int i=0;i<m;i++){ for(int j=0;j<n;j++) cout<<arr[i][j]<<" "; cout<<endl;}
 #define vppo(prs) for(auto x:prs){cout<<x.first<<" "<<x.second<<endl;}
 #define For(__,$$,adfdf) for(int __ = $$; __<adfdf;__++)
@@ -43,31 +41,80 @@ using namespace std;
 #define pqq priority_queue
 
 
-ll MOD = 1e9 + 7 ;
-string sconvert(ll n){stringstream ss; ss<<n; string str = ss.str(); return str;}
-ll lcm(ll x, ll y) { ll res = x / __gcd(x, y); return (res * y);}
- 
+#define MOD (ll)1e9+7
+ll mpow(ll base,ll exp) {
+base %= MOD;
+ll result = 1ll;
+while (exp > 0) {
+if (exp & 1ll) result = ((ll)result * base) % MOD;
+base = ((ll)base * base) % MOD;
+exp >>= 1;
+}
+return result;
+}
+string sconvert(ll n)
+{
+stringstream ss;
+ss<<n;
+string str = ss.str();
+return str;
+}
 
-bool sortbysec(const pair<int,int> &a, const pair<int,int> &b){ return (a.second > b.second); } 
+ll add(ll a, ll b, ll mod = MOD) {
+if (a + b >= mod) {
+return a + b - mod;
+}
+return a + b;
+}
+
+ll sub(ll a,ll b,ll  mod = MOD) {
+if (a - b < 0) {
+return a - b + mod;
+}
+return a - b;
+}
+
+ll mul(ll a, ll  b, ll mod = MOD) {
+return (ll )(1ll * a * b % mod);
+}
+
+
+bool sortbysec(const pair<int,int> &a, 
+const pair<int,int> &b) 
+{ 
+return (a.second > b.second); 
+}
 
 int32_t main()
 {
-    //type your code here
+	//type your code here
     ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
     #ifndef ONLINE_JUDGE
+<<<<<<< HEAD
         freopen("../input.txt","r",stdin);
         freopen("../output.txt","w",stdout);
-        freopen("../error.txt","w",stderr);
     #endif
     int t;
     cin>>t;
     int i=1;
     while(i<=t){
+        
         cout<<"Case #"<<i<<": "<<i<<endl;
-        mi(m,2,3);
-        mo(m,2,3);
          
         
+=======
+		freopen("../input.txt","r",stdin);
+		freopen("../output.txt","w",stdout);
+        freopen("../error.txt","w",stderr);
+	#endif
+	int t;
+	cin>>t;
+	int i=1;
+    while(i<=t){
+        int t;
+        cin>>t;
+         cout<<"Case #"<<i<<": "<<t<<endl;
+>>>>>>> parent of 67de2a1... templates
         i++;
         
     }	

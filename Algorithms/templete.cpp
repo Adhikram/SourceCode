@@ -1,7 +1,5 @@
 // LIVE AND LET OTHERS LIVE.
-#pragma GCC optimize("Ofast")
-#pragma GCC optimize("O3", "unroll-loops")
-#pragma GCC target("avx,avx2,fma")
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -53,45 +51,22 @@ ll sub(ll x, ll y) {ll res = x - y; return (res < 0 ? res + MOD : res);}
 ll power(ll x, ll y) {ll res = 1; x %= MOD; while (y) {if (y & 1)res = mul(res, x); y >>= 1; x = mul(x, x);} return res;}
 ll mod_inv(ll x) {return power(x, MOD - 2);}
 ll lcm(ll x, ll y) { ll res = x / __gcd(x, y); return (res * y);}
- 
 
-vll A,B,C;
-ll a,b,c,x,k,n;
-vector<vll>M,N;
+
+vll A,B,C,X,Y;
+ll a,b,c,x,k,n,m,y;
+vector<vll>M,N,K;
 void  single()
 {
-  
-  ll n,count=0;
-  cin>>n;
-  vll A(n,0);
-  string s;
-  ai(A);
-  For(i,1,n-1){
-      if(__gcd(A[i-1],A[i])!=1 or __gcd(A[i],A[i+1])!=1){
-          count++;
-          ll prev=A[i];ṇ
-          while(__gcd(A[i-1],A[i])!=1 or __gcd(A[i],A[i+1])!=1){
-              A[i]++;
-          }
-        //   cout<<A[i]<<endl;
-        // vector<vector<int>>arr(v,vector<int>(v,0));
-          A[i+1]=min(A[i+1],prev);
-          s+=(to_string(i+1)+" "+to_string(i+2)+" "+to_string(A[i])+" "+to_string(A[i+1])+"\n");
-          
-      }
-  }
-cout<<count<<endl;
-ao(A);
-space;
-  if(count)cout<<s;
-  
-      
-    // cerr<<"time taken : "<<(float)clock()/CLOCKS_PER_SEC<<" secs"<<endl;
+string s;
+cin>>s;
+cout<<s;
+// cerr<<"time taken : "<<(float)clock()/CLOCKS_PER_SEC<<" secs"<<endl;
 }
 void multiple(){
-  mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
-  testcases{single();}
-  }
+mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
+testcases{single();}
+}
 int main()
 {
 IOS;
@@ -99,10 +74,7 @@ IOS;
 freopen("input.txt","r",stdin);
 freopen("output.txt","w",stdout);
 #endif
-multiple();
-// single();
+// multiple();
+single();
 
 }
-
-
-

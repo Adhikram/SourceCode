@@ -44,38 +44,19 @@ using namespace std;
 #define up unordered_map
 
 
-ll MOD = 1e9 + 7 ;
+const ll MOD = 1e9+7, M = 2e6+7;
 string sconvert(ll n){stringstream ss; ss<<n; string str = ss.str(); return str;}
 ll lcm(ll x, ll y) { ll res = x / __gcd(x, y); return (res * y);}
-ll M = 10001;
-vll par(M,0);
-vll ran(M,0);
+bool sortbysec(const pair<int,int> &a, const pair<int,int> &b){ return (a.second > b.second); } 
+ 
 
-int parent(int i){
-    if (par[i] == i)
-        return i;
-    return par[i] = parent(par[i]);
-}
-void unite(int i, int j){
-    i = parent(i);
-    j = parent(j);
-    if (i == j)
-        return;
-    if (ran[i]<ran[j])
-        swap(i,j);
-    else if (ran[i] == ran[j])
-        ran[i]++;
-    par[j] = i;
-}
-void pre(int n){
-    for (int i = 1; i<=n; i++)
-        par[i] = i, ran[i] = 1;
-}
 void  single()
 {
+    take(x);
+    take(y);
+    p(x);
+    p2(x,y);
   
-
-      
     // cerr<<"time taken : "<<(float)clock()/CLOCKS_PER_SEC<<" secs"<<endl;
 }
 void multiple(){
@@ -89,8 +70,8 @@ IOS;
 freopen("../input.txt","r",stdin);
 freopen("../output.txt","w",stdout);
 #endif
-multiple();
-// single();
+// multiple();
+single();
 
 }
 

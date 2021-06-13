@@ -6,21 +6,18 @@ using namespace std;
 
 #define yes cout<<"YES"<<endl
 #define no cout<<"NO"<<endl
-#define take(x) ll x;cin>>(x);
-#define p(x) cout<<x<<endl;
-#define p2(x,y) cout<<x<<" "<<y<<endl;
+#define take(x) cin>>(x);
 #define pb push_back
 #define all(c) (c).begin(),(c).end()
 #define reverse(a) reverse(all(a))
 #define rall(c) (c).rbegin(),(c).rend()
-#define ai(arr,n) vll arr(n,0); for(int i=0;i<arr.size();i++)cin>>arr[i];
+#define ai(arr) for(int i=0;i<arr.size();i++)cin>>arr[i];
 #define ao(arr) for(auto wtf:arr) cout<<wtf<<" ";
-#define mi(arr,m,n) vector<vll>arr(m,vll(n,0)); for(int i=0;i<m;i++){ for(int j=0;j<n;j++) cin>>arr[i][j];}
+#define mi(arr,m,n) for(int i=0;i<m;i++){ for(int j=0;j<n;j++) cin>>arr[i][j];}
 #define mo(arr,m,n) for(int i=0;i<m;i++){ for(int j=0;j<n;j++) cout<<arr[i][j]<<" "; cout<<endl;}
 #define vppo(prs) for(auto x:prs){cout<<x.first<<" "<<x.second<<endl;}
 #define For(__,$$,adfdf) for(int __ = $$; __<adfdf;__++)
 #define Fori(__,$$,adfdf) for(int __ = $$; __>adfdf;__--)
-
 
 #define countsetbits(x) __builtin_popcount(x)
 #define db double
@@ -53,27 +50,12 @@ ll sub(ll x, ll y) {ll res = x - y; return (res < 0 ? res + MOD : res);}
 ll power(ll x, ll y) {ll res = 1; x %= MOD; while (y) {if (y & 1)res = mul(res, x); y >>= 1; x = mul(x, x);} return res;}
 ll mod_inv(ll x) {return power(x, MOD - 2);}
 ll lcm(ll x, ll y) { ll res = x / __gcd(x, y); return (res * y);}
-
-
-
-
 void  single(){
-  
-
-
+  int n;
+  cin>>n;
+  cout<<n;
   // cerr<<"time taken : "<<(float)clock()/CLOCKS_PER_SEC<<" secs"<<endl;
 }
-
-
-
-
-
-
-
-
-
-
-
 void multiple(){
   mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
   testcases{single();}

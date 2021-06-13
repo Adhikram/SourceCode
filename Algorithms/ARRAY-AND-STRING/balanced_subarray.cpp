@@ -1,7 +1,5 @@
+
 // LIVE AND LET OTHERS LIVE.
-#pragma GCC optimize("Ofast")
-#pragma GCC optimize("O3", "unroll-loops")
-#pragma GCC target("avx,avx2,fma")
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -9,18 +7,22 @@ using namespace std;
 
 #define yes cout<<"YES"<<endl
 #define no cout<<"NO"<<endl
-#define take(x) cin>>(x);
+#define take(x) ll x;cin>>(x);
+#define p(x) cout<<x<<endl;
+#define p2(x,y) cout<<x<<" "<<y<<endl;
 #define pb push_back
 #define all(c) (c).begin(),(c).end()
 #define reverse(a) reverse(all(a))
 #define rall(c) (c).rbegin(),(c).rend()
-#define ai(arr) for(int i=0;i<arr.size();i++)cin>>arr[i];
+#define ai(arr,n) vll arr(n,0); for(int i=0;i<arr.size();i++)cin>>arr[i];
 #define ao(arr) for(auto wtf:arr) cout<<wtf<<" ";
-#define mi(arr,m,n) for(int i=0;i<m;i++){ for(int j=0;j<n;j++) cin>>arr[i][j];}
+#define mi(arr,m,n) vector<vll>arr(m,vll(n,0)); for(int i=0;i<m;i++){ for(int j=0;j<n;j++) cin>>arr[i][j];}
 #define mo(arr,m,n) for(int i=0;i<m;i++){ for(int j=0;j<n;j++) cout<<arr[i][j]<<" "; cout<<endl;}
 #define vppo(prs) for(auto x:prs){cout<<x.first<<" "<<x.second<<endl;}
 #define For(__,$$,adfdf) for(int __ = $$; __<adfdf;__++)
 #define Fori(__,$$,adfdf) for(int __ = $$; __>adfdf;__--)
+
+bool sortbysec(const pair<int,int> &a, const pair<int,int> &b){ return (a.second > b.second); } 
 
 #define countsetbits(x) __builtin_popcount(x)
 #define db double
@@ -45,34 +47,65 @@ using namespace std;
 #define up unordered_map
 
 
-#define MOD (ll)1e9+7
+const ll MOD = 1e9+7, M = 2e6+7;
 string sconvert(ll n){stringstream ss; ss<<n; string str = ss.str(); return str;}
-ll add(ll x, ll y) {ll res = x + y; return (res >= MOD ? res - MOD : res);}
-ll mul(ll x, ll y) {ll res = x * y; return (res >= MOD ? res % MOD : res);}
-ll sub(ll x, ll y) {ll res = x - y; return (res < 0 ? res + MOD : res);}
-ll power(ll x, ll y) {ll res = 1; x %= MOD; while (y) {if (y & 1)res = mul(res, x); y >>= 1; x = mul(x, x);} return res;}
-ll mod_inv(ll x) {return power(x, MOD - 2);}
 ll lcm(ll x, ll y) { ll res = x / __gcd(x, y); return (res * y);}
-void  single()
-{
-    int n ;
-    cin>>n;
-    // cout<<n;
-    vi nums(n,0);
-    ai(nums);
 
-    sort(nums.begin(),nums.end(),[]
-             (int x,int y){
-                 if(to_string(x)+to_string(y)>to_string(y)+to_string(x))return true;
-                 else return false;
+
+
+    int findMaxLength(vector<ll>& nums) {
+       
+//         int n = nums.size();
+//         map<int,int>hash;
+//         hash[0]=-1;
+//         int result=0;
+//         int sum=0;
+//         for(int i =0;i <n;i++){
+//             int x=nums[i];
+//             if(x){
+//                 sum++;
+//             }else{
+//                 sum--;
+//             }
+//             if(hash.count(sum)){
+//                 result=max(result,i-hash[sum]);
+//             }else{
+//                 hash[sum]=i;
+//             }
             
-        });
-        string result="";
-        for(auto x:nums){result+=to_string(x);}
-        if(result[0]=='0') return "0";
-        cout<<result<<endl;
-    // cerr<<"time taken : "<<(float)clock()/CLOCKS_PER_SEC<<" secs"<<endl;
+//         }
+//           return result ; 
+         
+        int n = nums.size();
+        vector <int> flag(2 * n + 1, 0);
+        int ans = 0, tmp = 0;
+        for (int i = 0; i < n; ++i) {
+            if (nums[i]) ++tmp; else --tmp;
+            if (!tmp) ans = max(ans, i + 1); else
+            if (flag[tmp + n]) ans = max(ans, i + 1 - flag[tmp + n]); else
+                flag[tmp + n] = i + 1;
+        }
+        return ans;
+    }
+
+void  single(){
+    ai(a,8);
+    p(findMaxLength(a));
+
+
+  // cerr<<"time taken : "<<(float)clock()/CLOCKS_PER_SEC<<" secs"<<endl;
 }
+
+
+
+
+
+
+
+
+
+
+
 void multiple(){
   mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
   testcases{single();}

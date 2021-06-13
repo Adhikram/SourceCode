@@ -43,35 +43,59 @@ using namespace std;
 #define pqq priority_queue
 #define up unordered_map
 
+const int MAX = 10000000;
 
-const ll MOD = 1e9+7, M = 2e6+7;
-string sconvert(ll n){stringstream ss; ss<<n; string str = ss.str(); return str;}
-ll lcm(ll x, ll y) { ll res = x / __gcd(x, y); return (res * y);}
-bool sortbysec(const pair<int,int> &a, const pair<int,int> &b){ return (a.second > b.second); } 
+int prefix[MAX + 1];
  
-
-void  single()
+void buildPrefix()for(int i=1;i<row-1;i++){
+            for(int j = 1; j<col-1; j++){
+                if(dp[i][j]){
+                    dp[i][j]=1+ max({dp[i-1][j],dp[i+1][j],dp[i][j-1],dp[i][j+1] });
+                    _max = max(_max,dp[i][j]);
+                }
+            }
+        }
 {
-  // ai(a,4);
-  // ao(a);
-      
-    // cerr<<"time taken : "<<(float)clock()/CLOCKS_PER_SEC<<" secs"<<endl;
+    bool prime[MAX + 1];
+    memset(prime, true, sizeof(prime));
+ 
+    for (int p = 2; p * p <= MAX; p++) {
+ 
+        if (prime[p] == true) {
+ 
+            for (int i = p * 2; i <= MAX; i += p)
+                prime[i] = false;
+        }
+    }
+ 
+    prefix[0] = prefix[1] = 0;
+    for (int p = 2; p <= MAX; p++) {
+        prefix[p] = prefix[p - 1];
+        if (prime[p])
+            prefix[p]++;
+    }
 }
-void multiple(){
-  mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
-  testcases{single();}
+ int query(int L, int R)
+{
+    return prefix[R] - prefix[L];
+}
+int main() {
+  ios::sync_with_stdio(false);
+  cin.tie(0);
+  int t;
+  cin >> t;
+  buildPrefix();
+  while (t--) {
+      int n;
+      cin>>n;
+      if(n==2)cout<<"1\n";
+      else if(n==3||n==4)cout<<"2\n";
+      else{
+          int l = n / 2;
+          int ans = query(l,n);
+          cout<<ans+1<<"\n";
+      }
+
   }
-int main()
-{
-IOS;
-#ifndef ONLINE_JUDGE
-freopen("../../input.txt","r",stdin);
-freopen("../../output.txt","w",stdout);
-#endif
-multiple();
-// single();
-
+  return 0;
 }
-
-
-
