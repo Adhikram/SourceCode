@@ -40,7 +40,9 @@ using namespace std;
 #define si set<int>
 #define pqq priority_queue
 #define up unordered_map
-
+void debugg(){cout<<endl;}
+template<class T,class... Args>void debugg(const T& x,const Args&... args){cout<<" |"<<x;debugg(args...);}
+#define dbg(...) cout<<__LINE__<<" ["<<#__VA_ARGS__<<"]:",debugg(__VA_ARGS__)
 
 #define MOD 1000000007
 string sconvert(ll n){stringstream ss; ss<<n; string str = ss.str(); return str;}

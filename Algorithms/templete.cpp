@@ -26,6 +26,10 @@ using namespace std;
 #define ull unsigned ll
 
 
+void debugg(){cout<<endl;}
+template<class T,class... Args>void debugg(const T& x,const Args&... args){cout<<" |"<<x;debugg(args...);}
+#define dbg(...) cout<<__LINE__<<" ["<<#__VA_ARGS__<<"]:",debugg(__VA_ARGS__)
+
 #define debugger cout<<"I AM EXECUTING"<<endl
 #define testcases int asdf; cin>>asdf; while(asdf--)
 
