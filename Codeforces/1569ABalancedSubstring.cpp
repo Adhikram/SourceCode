@@ -103,22 +103,21 @@ bool sortbysec(const pair<int, int> &a, const pair<int, int> &b) { return (a.sec
 void single()
 {
 
-    string s;
-    take(n);
-    cin >> s;
-    unordered_map<char, int> hash;
-    int l = -1, r = -1;
-    for(int i = 0; i < s.length();i++){
-        if(hash.count(s[i]) == 0)hash[s[i]] = i;
-        else{
-            if(r-l < i-hash[s[i]]){
-                l=hash[s[i]];
-                r= i ;
-            }
-        }
+    int n,x,y;
+    cin>>n>>x>>y;
+    vector<int>arr,brr;
+    for(int i =0;i<n;i++) {
+        int temp;
+        cin>>temp;
+        arr.push_back(temp);
     }
-    if(l!=-1){l++;r++;}
-    cout << l << " " << r << endl;
+    for(int i =0;i<n;i++) {
+        int temp;
+        cin>>temp;
+        brr.push_back(temp);
+    }
+
+    cout<<solve(n-1,x,y,arr,brr)<<endl;
     // cerr<<"time taken : "<<(float)clock()/CLOCKS_PER_SEC<<" secs"<<endl;
 }
 void multiple()
