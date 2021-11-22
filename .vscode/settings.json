@@ -1,5 +1,5 @@
 {
-<<<<<<< HEAD
+
     "debug.onTaskErrors": "showErrors",
     "cSpell.words": [
         "Fori",
@@ -14,7 +14,7 @@
         "iosfwd": "cpp"
     }
     
-=======
+
     "debug.onTaskErrors": "showErrors"
 >>>>>>> parent of 67de2a1... templates
 }
