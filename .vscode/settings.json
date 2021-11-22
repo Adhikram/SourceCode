@@ -13,8 +13,4 @@
         "unordered_map": "cpp",
         "iosfwd": "cpp"
     }
-    
-
-    "debug.onTaskErrors": "showErrors"
->>>>>>> parent of 67de2a1... templates
 }
