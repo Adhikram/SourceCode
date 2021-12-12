@@ -31,7 +31,7 @@ template<class T,class... Args>void debugg(const T& x,const Args&... args){cout<
 #define dbg(...) cout<<__LINE__<<" ["<<#__VA_ARGS__<<"]:",debugg(__VA_ARGS__)
 
 #define debugger cout<<"I AM EXECUTING"<<endl
-#define testcases int asdf; cin>>asdf; while(asdf--)
+#define testcases int asdf;  while(scanf("%d",&asdf)!= EOF)
 
 #define space cout<<endl
 
@@ -55,28 +55,36 @@ ll sub(ll x, ll y) {ll res = x - y; return (res < 0 ? res + MOD : res);}
 ll power(ll x, ll y) {ll res = 1; x %= MOD; while (y) {if (y & 1)res = mul(res, x); y >>= 1; x = mul(x, x);} return res;}
 ll mod_inv(ll x) {return power(x, MOD - 2);}
 ll lcm(ll x, ll y) { ll res = x / __gcd(x, y); return (res * y);}
-
+ll min(ll x,ll y){return (x > y ? y : x);}
+ll max(ll x,ll y){return (x < y ? y : x);}
 
 vll A,B,C,X,Y;
 ll a,b,c,x,k,n,m,y;
 vector<vll>M,N,K;
+
+
 void  single()
 {
-string s;
-cin>>s;
-cout<<s;
+    int prev =INT_MAX,now;
+    int count=0;
+    while(cin>>now){
+        if(now>prev)count++;
+        prev=now;
+    }
+    cout<<count<<endl;
+
+
 // cerr<<"time taken : "<<(float)clock()/CLOCKS_PER_SEC<<" secs"<<endl;
 }
 void multiple(){
-mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 testcases{single();}
 }
 int main()
 {
 IOS;
 #ifndef ONLINE_JUDGE
-freopen("input.txt","r",stdin);
-freopen("output.txt","w",stdout);
+    freopen("/mnt/c/Projects/SourceCode/input.txt","r",stdin);
+    freopen("/mnt/c/Projects/SourceCode/output.txt","w",stdout);
 #endif
 // multiple();
 single();
