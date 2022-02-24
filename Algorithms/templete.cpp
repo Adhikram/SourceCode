@@ -1,5 +1,4 @@
 // LIVE AND LET OTHERS LIVE.
-
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -7,14 +6,16 @@ using namespace std;
 
 #define yes cout<<"YES"<<endl
 #define no cout<<"NO"<<endl
-#define take(x) cin>>(x);
+#define take(x) ll x;cin>>(x);
+#define p(x) cout<<x<<endl;
+#define p2(x,y) cout<<x<<" "<<y<<endl;
 #define pb push_back
 #define all(c) (c).begin(),(c).end()
 #define reverse(a) reverse(all(a))
 #define rall(c) (c).rbegin(),(c).rend()
-#define ai(arr) for(int i=0;i<arr.size();i++)cin>>arr[i];
+#define ai(arr,n) vll arr(n,0); for(int i=0;i<arr.size();i++)cin>>arr[i];
 #define ao(arr) for(auto wtf:arr) cout<<wtf<<" ";
-#define mi(arr,m,n) for(int i=0;i<m;i++){ for(int j=0;j<n;j++) cin>>arr[i][j];}
+#define mi(arr,m,n) vector<vll>arr(m,vll(n,0)); for(int i=0;i<m;i++){ for(int j=0;j<n;j++) cin>>arr[i][j];}
 #define mo(arr,m,n) for(int i=0;i<m;i++){ for(int j=0;j<n;j++) cout<<arr[i][j]<<" "; cout<<endl;}
 #define vppo(prs) for(auto x:prs){cout<<x.first<<" "<<x.second<<endl;}
 #define For(__,$$,adfdf) for(int __ = $$; __<adfdf;__++)
@@ -25,10 +26,6 @@ using namespace std;
 #define ll long long int
 #define ull unsigned ll
 
-
-void debugg(){cout<<endl;}
-template<class T,class... Args>void debugg(const T& x,const Args&... args){cout<<" |"<<x;debugg(args...);}
-#define dbg(...) cout<<__LINE__<<" ["<<#__VA_ARGS__<<"]:",debugg(__VA_ARGS__)
 
 #define debugger cout<<"I AM EXECUTING"<<endl
 #define testcases int asdf; cin>>asdf; while(asdf--)
@@ -47,30 +44,25 @@ template<class T,class... Args>void debugg(const T& x,const Args&... args){cout<
 #define up unordered_map
 
 
-#define MOD (ll)1e9+7
+const ll MOD = 1e9+7, M = 2e6+7;
 string sconvert(ll n){stringstream ss; ss<<n; string str = ss.str(); return str;}
-ll add(ll x, ll y) {ll res = x + y; return (res >= MOD ? res - MOD : res);}
-ll mul(ll x, ll y) {ll res = x * y; return (res >= MOD ? res % MOD : res);}
-ll sub(ll x, ll y) {ll res = x - y; return (res < 0 ? res + MOD : res);}
-ll power(ll x, ll y) {ll res = 1; x %= MOD; while (y) {if (y & 1)res = mul(res, x); y >>= 1; x = mul(x, x);} return res;}
-ll mod_inv(ll x) {return power(x, MOD - 2);}
 ll lcm(ll x, ll y) { ll res = x / __gcd(x, y); return (res * y);}
+bool sortbysec(const pair<int,int> &a, const pair<int,int> &b){ return (a.second > b.second); } 
+ 
 
-
-vll A,B,C,X,Y;
-ll a,b,c,x,k,n,m,y;
-vector<vll>M,N,K;
 void  single()
 {
-string s;
-cin>>s;
-cout<<s;
-// cerr<<"time taken : "<<(float)clock()/CLOCKS_PER_SEC<<" secs"<<endl;
+  take(x);
+  p(x);
+      
+    // cerr<<"time taken : "<<(float)clock()/CLOCKS_PER_SEC<<" secs"<<endl;
 }
 void multiple(){
-mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
-testcases{single();}
-}
+  mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
+  testcases{single();}
+  }
+  
+  
 int main()
 {
 IOS;
@@ -79,6 +71,21 @@ freopen("input.txt","r",stdin);
 freopen("output.txt","w",stdout);
 #endif
 // multiple();
-single();
+// // single();
+ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+	int T;
+	cin>>T;
+	int j=1;
+    while(T--){
+        int n;
+        cin>>n;
+		vector<int> r(n);
+        for(int i=0;i<n;i++){
+            cin>>r[i];
+        }
+       
+        cout<<"Case #"<<j<<": "<<lca(r)<<endl;
+        j++;
+
 
 }
