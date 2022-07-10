@@ -12,13 +12,22 @@ using namespace std;
 #define all(c) (c).begin(),(c).end()
 #define reverse(a) reverse(all(a))
 #define rall(c) (c).rbegin(),(c).rend()
-#define ai(arr) for(int i=0;i<arr.size();i++)cin>>arr[i];
-#define ao(arr) for(auto wtf:arr) cout<<wtf<<" ";
-#define mi(arr,m,n) for(int i=0;i<m;i++){ for(int j=0;j<n;j++) cin>>arr[i][j];}
-#define mo(arr,m,n) for(int i=0;i<m;i++){ for(int j=0;j<n;j++) cout<<arr[i][j]<<" "; cout<<endl;}
-#define vppo(prs) for(auto x:prs){cout<<x.first<<" "<<x.second<<endl;}
-#define For(__,$$,adfdf) for(int __ = $$; __<adfdf;__++)
-#define Fori(__,$$,adfdf) for(int __ = $$; __>adfdf;__--)
+
+
+#define loop(i, start, end) for (int i = start; i <= end; i++)
+#define rloop(i, start, end) for (int i = start; i >= end; i--)
+#define ai(arr) loop(i, 0, arr.size()) cin >> arr[i];
+#define ao(arr)        \
+  for (auto wtf : arr) \
+    cout << wtf << " ";
+#define mi(arr, m, n) \
+  loop(i, 0, m) { loop(j, 0, n) cin >> arr[i][j]; }
+#define mo(arr, m, n)                       \
+  loop(i, 0, m)                             \
+  {                                         \
+    loop(j, 0, n) cout << arr[i][j] << " "; \
+    cout << endl;                           \
+  }
 
 #define countsetbits(x) __builtin_popcount(x)
 #define db double
@@ -58,19 +67,17 @@ ll lcm(ll x, ll y) { ll res = x / __gcd(x, y); return (res * y);}
 ll min(ll x,ll y){return (x > y ? y : x);}
 ll max(ll x,ll y){return (x < y ? y : x);}
 
-vll A,B,C,X,Y;
-ll a,b,c,x,k,n,m,y;
-vector<vll>M,N,K;
+// vll A,B,C,X,Y;
+// ll a,b,c,x,k,n,m,y;
+// vector<vll>M,N,K;
 
 
 void  single()
 {
-    int prev =INT_MAX,now;
-    int count=0;
-    while(cin>>now){
-        cout<<now<<endl;
-    }
-
+    vi A(9);
+    ai(A);
+    space;
+    ao(A);
 
 
 // cerr<<"time taken : "<<(float)clock()/CLOCKS_PER_SEC<<" secs"<<endl;
@@ -82,8 +89,8 @@ int main()
 {
 IOS;
 #ifndef ONLINE_JUDGE
-    freopen("input.txt","r",stdin);
-    freopen("output.txt","w",stdout);
+    freopen("../input.txt","r",stdin);
+    freopen("../output.txt","w",stdout);
 #endif
 // multiple();
 single();
