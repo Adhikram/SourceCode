@@ -108,6 +108,10 @@ ll lcm(ll x, ll y)
 void solve()
 {
 
+  vi A(9);
+  ai(A);
+  space;
+  ao(A);
 
 }
 
@@ -115,8 +119,8 @@ int32_t main()
 {
   auto start = chrono::high_resolution_clock::now();
 #ifndef ONLINE_JUDGE
-  freopen("../input.txt", "r", stdin);
-  freopen("../output.txt", "w", stdout);
+  freopen("input.txt", "r", stdin);
+  freopen("output.txt", "w", stdout);
 #endif
   ios_base::sync_with_stdio(false);
   cout.tie(NULL);
