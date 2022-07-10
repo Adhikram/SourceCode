@@ -68,10 +68,9 @@ void  single()
     int prev =INT_MAX,now;
     int count=0;
     while(cin>>now){
-        if(now>prev)count++;
-        prev=now;
+        cout<<now<<endl;
     }
-    cout<<count<<endl;
+
 
 
 // cerr<<"time taken : "<<(float)clock()/CLOCKS_PER_SEC<<" secs"<<endl;
@@ -83,8 +82,8 @@ int main()
 {
 IOS;
 #ifndef ONLINE_JUDGE
-    freopen("/mnt/c/Projects/SourceCode/input.txt","r",stdin);
-    freopen("/mnt/c/Projects/SourceCode/output.txt","w",stdout);
+    freopen("input.txt","r",stdin);
+    freopen("output.txt","w",stdout);
 #endif
 // multiple();
 single();

@@ -93,7 +93,7 @@ ll lcm(ll x, ll y)
 void single()
 {
     ios_base::sync_with_stdio(false), cin.tie(nullptr);
-    ai(nums,5);
+    ai(nums, 5);
     take(k);
     sort(nums.begin(), nums.end());
     int len = nums.size();
@@ -101,7 +101,7 @@ void single()
     int count = 0;
     while (i < len && j < len)
     {
-        //Equality check is important
+        // Equality check is important
         if (i == j || nums[i] + k > nums[j])
         {
             j++;
@@ -120,9 +120,9 @@ void single()
             }
         }
     }
-    p(count) ;
+    p(count);
 
-    cerr<<"time taken : "<<(float)clock()/CLOCKS_PER_SEC<<" secs"<<endl;
+    cerr << "time taken : " << (float)clock() / CLOCKS_PER_SEC << " secs" << endl;
 }
 
 void multiple()
