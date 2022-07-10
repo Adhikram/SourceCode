@@ -18,17 +18,9 @@ using namespace std;
 #define loop(i, start, end) for (int i = start; i <= end; i++)
 #define rloop(i, start, end) for (int i = start; i >= end; i--)
 #define ai(arr) loop(i, 0, arr.size()) cin >> arr[i];
-#define ao(arr)        \
-  for (auto wtf : arr) \
-    cout << wtf << " ";
-#define mi(arr, m, n) \
-  loop(i, 0, m) { loop(j, 0, n) cin >> arr[i][j]; }
-#define mo(arr, m, n)                       \
-  loop(i, 0, m)                             \
-  {                                         \
-    loop(j, 0, n) cout << arr[i][j] << " "; \
-    cout << endl;                           \
-  }
+#define ao(arr)  loop(i, 0, arr.size()) cout << arr[i];
+#define mi(arr, m, n)loop(i, 0, m) { loop(j, 0, n) cin >> arr[i][j]; }
+#define mo(arr, m, n)  loop(i, 0, m){    loop(j, 0, n) cout << arr[i][j] << " ";cout << endl;}
 
 #define countsetbits(x) __builtin_popcount(x)
 #define db double
@@ -50,60 +42,19 @@ using namespace std;
 #define si set<int>
 #define pqq priority_queue
 #define up unordered_map
-void debugg()
-{
-  cout << endl;
-}
+void debugg(){cout << endl;}
 template <class T, class... Args>
-void debugg(const T &x, const Args &...args)
-{
-  cout << " |" << x;
-  debugg(args...);
-}
+void debugg(const T &x, const Args &...args){  cout << " |" << x;  debugg(args...);}
 #define dbg(...) cout << __LINE__ << " [" << #__VA_ARGS__ << "]:", debugg(__VA_ARGS__)
 
 #define MOD 1000000007
-string sconvert(ll n)
-{
-  stringstream ss;
-  ss << n;
-  string str = ss.str();
-  return str;
-}
-ll add(ll x, ll y)
-{
-  ll res = x + y;
-  return (res >= MOD ? res - MOD : res);
-}
-ll mul(ll x, ll y)
-{
-  ll res = x * y;
-  return (res >= MOD ? res % MOD : res);
-}
-ll sub(ll x, ll y)
-{
-  ll res = x - y;
-  return (res < 0 ? res + MOD : res);
-}
-ll power(ll x, ll y)
-{
-  ll res = 1;
-  x %= MOD;
-  while (y)
-  {
-    if (y & 1)
-      res = mul(res, x);
-    y >>= 1;
-    x = mul(x, x);
-  }
-  return res;
-}
+string sconvert(ll n){  stringstream ss;  ss << n;  string str = ss.str();  return str;}
+ll add(ll x, ll y){  ll res = x + y;  return (res >= MOD ? res - MOD : res);}
+ll mul(ll x, ll y){  ll res = x * y;  return (res >= MOD ? res % MOD : res);}
+ll sub(ll x, ll y){  ll res = x - y;  return (res < 0 ? res + MOD : res);}
+ll power(ll x, ll y){  ll res = 1;  x %= MOD;  while (y)  {    if (y & 1)      res = mul(res, x);    y >>= 1;    x = mul(x, x);  }  return res;}
 ll mod_inv(ll x) { return power(x, MOD - 2); }
-ll lcm(ll x, ll y)
-{
-  ll res = x / __gcd(x, y);
-  return (res * y);
-}
+ll lcm(ll x, ll y){  ll res = x / __gcd(x, y);  return (res * y);}
 
 void solve()
 {
